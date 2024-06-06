@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>SOPHIE</title>
+  <style>
+    @media screen and (max-width: 12000px) {
+      body {
+        background-color: #f1f1f1;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+      }
+
+      span {
+        font-style: italic;
+        color: #4caf50;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0);
+      }
+
+      h1 {
+        color: #333;
+        font-size: 46px;
+        margin-top: 40px;
+        font-family: 'Arial black', sans-serif;
+      }
+
+      .container {
+        display: flex;
+        max-width: 80%;
+        height: 80%;
+        margin: 40px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .menu {
+        flex-basis: 30%;
+        background-color: #e9e9e9;
+        padding: 10px;
+        border-radius: 10px;
+      }
+
+      .menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .menu li {
+        margin-bottom: 10px;
+      }
+      .menu h1 {
+        color: #45a049;
+        box-shadow:1px 1px 2px 2px #333;
+        border-radius: 10px;
+        padding: 15px;
+
+      }
+
+      .menu a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        display: block;
+        padding: 5px;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+
+      .menu a:hover {
+        background-color: #ccc;
+      }
+
+      .content {
+        flex-basis: 70%;
+      }
+
+      .input-field {
+        margin-bottom: 20px;
+      }
+
+      .input-field label {
+        display: block;
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 6px;
+        color: #333;
+      }
+
+      .input-field input {
+        margin: auto;
+        width: 90%;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+
+      .submit-btn {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        font-size: 18px;
+        color: #fff;
+        background-color: #4caf50;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .submit-btn:hover {
+        background-color: #45a049;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>SOPHIE <span>Bank</span></h1>
+  <div class="container">
+    <div class="menu">
+      <h1>Bank</h1>
+    
+      <ul>
+        <li><a href="#">Accueil</a></li>
+        <li><a href="#">À propos</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">N° Enreg : <span id="clickCount">0</span></a></li>
+      </ul>
+    </div>
+    <div class="content">
+      <form action="/save" method="post">
+        <div class="input-field">
+          <label for="cardId">ID de la carte RFID :</label>
+          <input type="text" id="cardId" name="cardId" readonly>
+        </div>
+        <div class="input-field">
+          <label for="nom">Nom :</label>
+          <input type="text" id="nom" name="nom" required>
+        </div>
+        <div class="input-field">
+          <label for="postnom">Pass word :</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <div class="input-field">
+          <label for="montant">Montant :</label>
+          <input type="text" id="montant" name="montant" required>
+        </div>
+        <button type="submit" class="submit-btn">Enregistrer</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Récupérer l'élément du bouton "Enregistrer"
+    var submitButton = document.querySelector('.submit-btn');
+
+    // Récupérer l'élément du compteur declics
+    var clickCountElement = document.getElementById('clickCount');
+
+    // Variable pour stocker le nombre de clics
+    var clickCount = 0;
+
+    // Gérer le clic sur le bouton "Enregistrer"
+    submitButton.addEventListener('click', function() {
+      // Incrémenter le compteur de clics
+      clickCount++;
+
+      // Mettre à jour le nombre de clics affiché
+      clickCountElement.textContent = clickCount;
+    });
+  </script>
+</body>
+</html>
